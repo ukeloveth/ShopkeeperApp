@@ -1,4 +1,4 @@
-package com.loveth.java;
+package com.loveth.java.concurrent.withdelay;
 
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
@@ -42,13 +42,11 @@ public class PancakeSimulation {
     public static void main(String[] args) {
         PancakeShop shop = new PancakeShop();
 
-        ExecutorService executor = Executors.newFixedThreadPool(4); // Shopkeeper + 3 Users
+        ExecutorService executor = Executors.newFixedThreadPool(4);
 
-        // Simulate for 5 rounds of 30 seconds each
         for (int i = 1; i <= 5; i++) {
             System.out.println("Round " + i + ":");
 
-            // Shopkeeper makes pancakes
             executor.execute(shop::makePancakes);
 
             Random random = new Random();

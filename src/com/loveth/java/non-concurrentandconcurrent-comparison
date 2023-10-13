@@ -1,0 +1,22 @@
+These are the comparisons between the two versions of the code:
+
+PancakeShop (Concurrent Version)
+Atomic Variables: In the concurrent version, the AtomicInteger class is used to manage pancakesMade and pancakesEaten. This provides atomic operations, making it suitable for multithreaded environments.
+
+Thread Safety: The concurrent version is designed to handle multiple threads simultaneously. It ensures that pancakesMade and pancakesEaten are updated safely without race conditions in a multithreaded environment.
+
+Synchronized Updates: Atomic operations eliminate the need for explicit synchronization (e.g., using synchronized blocks or methods) to protect shared data. This makes the code cleaner and more efficient in a concurrent context.
+
+Performance: The use of atomic variables can lead to better performance in scenarios with multiple threads, as there's less contention for locks.
+
+
+PancakeShopWithNonConcurrent (Non-Concurrent Version)
+Basic Variables: In the non-concurrent version, simple int variables are used for pancakesMade and pancakesEaten. These are not designed for concurrent updates.
+
+Lack of Thread Safety: This version does not address thread safety concerns. If used in a multithreaded environment, it may result in data inconsistencies or race conditions.
+
+Not Suitable for Concurrency: This version is not suitable for use in a concurrent environment without external synchronization mechanisms (e.g., using synchronized blocks or methods). Without such synchronization, it's not safe to update pancakesMade and pancakesEaten from multiple threads simultaneously.
+
+Simplicity: The non-concurrent version is simpler and may be more suitable for a single-threaded or non-concurrent scenario where thread safety is not a concern.
+
+In summary, the main difference between the two versions is their suitability for concurrent or non-concurrent scenarios. The concurrent version uses atomic variables to ensure thread safety and is designed for multithreaded environments, while the non-concurrent version is a simpler implementation but lacks thread safety for concurrent use.
